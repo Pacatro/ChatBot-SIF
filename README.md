@@ -1,3 +1,3 @@
 # ChatBot-SIF
-ChatBot para TFP de SIF
+ChatBot integrando ChatGPT para TFP de SIF
 
