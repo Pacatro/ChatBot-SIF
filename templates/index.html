@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../static/index/styles.css">
-        <title>ChatBot</title>
+        <link rel="stylesheet" href="../static/styles.css">
+        <title>Chatbot</title>
     </head>
     <body>
-        <h1>ChatBot</h1>
+        <h1 class="title">ChatBot</h1>
+        <div id="container">
+            <div class="chatbox" id="chatbox">
+                <div class="bot-message">¡Hola! Soy un chatbot. ¿En qué puedo ayudarte?</div>
+            </div>
+        </div>
+        <section class="input">
+            <div class="input-box">
+                <input type="text" id="user-input" placeholder="Escribe tu mensaje..." />
+            </div>
+        </section>
+
+        <script src="../static/index.js"></script>
     </body>
 </html>
