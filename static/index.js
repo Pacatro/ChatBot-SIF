@@ -6,6 +6,7 @@ window.onkeydown=function(event){
 
         if ((messageContent !== "") && (messageContent.replace(/\s/g, '').length > 0)) {
             addUserMessageBubble(messageContent);
+            sendMessage();
             document.getElementById("chat").value = ""
         }
             
@@ -48,6 +49,11 @@ function addMachineMessageBubble(message) {
     defaultMessage.classList.add("message-machine");
 
     document.getElementById("messages").appendChild(defaultMessage);
+}
+
+function sendMessage() {
+    let form = document.getElementById("chatform");
+    form.submit();
 }
 
 emptyChat();

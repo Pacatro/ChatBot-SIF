@@ -33,6 +33,8 @@ body {
     font-family: 'Roboto Mono', monospace;
     padding: 10px;
     padding-left: 20px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .option:hover {

@@ -15,16 +15,16 @@
             <div class="option" onclick="emptyChat()">
                 Nuevo chat
             </div>
-            <div class="option">
+            <a class="option" href="/contact">
                 Contacto
-            </div>
+            </a>
         </div>
         <div class="main">
             <div id="messages">
             </div>
-            <div class="chatbox">
-                <textarea id="chat" placeholder="Introduzca aquí su mensaje para enviar"></textarea>
-            </div>
+            <form class="chatbox" id="chatform" action="/chat/send" method="post">
+                <textarea id="chat" placeholder="Introduzca aquí su mensaje para enviar" name="message"></textarea>
+            </form>
         </div>
     </body>
     <script src="/static/index.js"></script>
