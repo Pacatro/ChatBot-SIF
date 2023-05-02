@@ -1,45 +1,53 @@
-// Código JavaScript para el chatbot
+// Text area enter key handler
 
-// Obtener elementos del DOM
-const chatbox = document.getElementById('chatbox');
-const userInput = document.getElementById('user-input');
+window.onkeydown=function(event){
+    if(event.keyCode === 13){
+        let messageContent = document.getElementById("chat").value;
 
-// Función para agregar un mensaje del usuario al chatbox
-function addUserMessage(message) {
-    const userMessage = document.createElement('div');
-    userMessage.classList.add('user-message');
-    userMessage.innerText = message;
-    chatbox.appendChild(userMessage);
-}
-
-// Función para agregar un mensaje del chatbot al chatbox
-function addBotMessage(message) {
-    const botMessage = document.createElement('div');
-    botMessage.classList.add('bot-message');
-    botMessage.innerText = message;
-    chatbox.appendChild(botMessage);
-}
-
-// Función para procesar la entrada del usuario
-function processUserInput() {
-    const message = userInput.value;
-
-    // Agregar el mensaje del usuario al chatbox
-    addUserMessage(message);
-
-    // Lógica del chatbot - aquí debes implementar la lógica de tu chatbot
-
-    // Ejemplo de respuesta del chatbot
-    addBotMessage('Gracias por tu mensaje. Estoy procesando tu solicitud...');
-
-    // Limpiar el campo de entrada del usuario
-    userInput.value = '';
-}
-
-// Escuchar el evento 'keydown' en el campo de entrada del usuario
-userInput.addEventListener('keydown', function (event) {
-    // Verificar si se presionó la tecla Enter
-    if (event.key === 'Enter') {
-        processUserInput();
+        if ((messageContent !== "") && (messageContent.replace(/\s/g, '').length > 0)) {
+            addUserMessageBubble(messageContent);
+            document.getElementById("chat").value = ""
+        }
+            
+        return false; // prevent default behavior if ENTER key
     }
-});
+
+    return true;
+}
+
+function addUserMessageBubble(message) {
+    let userMessageBubble = document.createElement("div");
+    userMessageBubble.classList.add("message-user");
+    userMessageBubble.innerHTML = message;
+
+    document.getElementById("messages").appendChild(userMessageBubble);
+}
+
+let state = true;
+
+function doBlinkyBlinkyOnName() {
+    if (state) {
+        document.getElementById("logo").innerHTML = "Fixy";
+    } else {
+        document.getElementById("logo").innerHTML = "Fixy_";
+    }
+
+    state = !state
+}
+
+let cursorBlinkInterval = setInterval(doBlinkyBlinkyOnName, 1000);
+
+function emptyChat() {
+    document.getElementById("messages").innerHTML = "";
+    addMachineMessageBubble("Hola, soy Fixy. Soy una inteligencia artificial basada en ChatGPT dispuesta a ayudarle en todo lo que haga falta. ¿En que puedo ayudarle hoy?");
+}
+
+function addMachineMessageBubble(message) {
+    let defaultMessage = document.createElement("div");
+    defaultMessage.innerHTML = message;
+    defaultMessage.classList.add("message-machine");
+
+    document.getElementById("messages").appendChild(defaultMessage);
+}
+
+emptyChat();
