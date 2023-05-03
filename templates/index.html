@@ -15,21 +15,16 @@
             <div class="option" onclick="emptyChat()">
                 Nuevo chat
             </div>
-            <a class="option" href="/contact">
+            <a class="option" href="/chat/contact">
                 Contacto
             </a>
         </div>
         <div class="main">
             <div id="messages">
-                {% if response %}
-                <script src="/static/index.js">
-                    addMachineMessageBubble(response)
-                </script>
-                {% endif %}
             </div>
-            <form class="chatbox" id="chatform" action="/chat/send" method="post">
-                <textarea id="chat" placeholder="Introduzca aquí su mensaje para enviar" name="message"></textarea>
-            </form>
+            <div class="chatbox" id="chatform">
+                <textarea id="chat" placeholder="Introduzca aquí su mensaje para enviar"></textarea>
+            </div>
         </div>
     </body>
     <script src="/static/index.js"></script>

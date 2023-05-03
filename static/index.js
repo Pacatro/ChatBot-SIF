@@ -52,8 +52,18 @@ function addMachineMessageBubble(message) {
 }
 
 function sendMessage() {
-    let form = document.getElementById("chatform");
-    form.submit();
+    let userMessage = document.getElementById("chat").value;
+
+    fetch('/chat/send', {
+        method: 'POST',
+        body: JSON.stringify({ message: userMessage }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(data => addMachineMessageBubble(data[0].respond))
+    .catch(error => {throw error});
 }
 
 emptyChat();

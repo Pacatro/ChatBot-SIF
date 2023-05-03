@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from functions.functions import *
 
 app = Flask(__name__)
@@ -13,10 +13,16 @@ def contact():
 
 @app.route('/chat/send', methods=['POST'])
 def send():
-    message = request.form['message']
-    print(message)
+    message = request.get_json()['message']
     respond = bot_response(message)
-    return render_template('index.html', response=respond)
+    
+    json_respond = [
+        {
+            "respond": respond
+        }
+    ]
+
+    return jsonify(json_respond)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)
