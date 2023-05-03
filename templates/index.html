@@ -21,6 +21,11 @@
         </div>
         <div class="main">
             <div id="messages">
+                {% if response %}
+                <script src="/static/index.js">
+                    addMachineMessageBubble(response)
+                </script>
+                {% endif %}
             </div>
             <form class="chatbox" id="chatform" action="/chat/send" method="post">
                 <textarea id="chat" placeholder="Introduzca aquí su mensaje para enviar" name="message"></textarea>

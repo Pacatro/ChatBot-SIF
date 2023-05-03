@@ -14,8 +14,9 @@ def contact():
 @app.route('/chat/send', methods=['POST'])
 def send():
     message = request.form['message']
+    print(message)
     respond = bot_response(message)
-    return respond
+    return render_template('index.html', response=respond)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)
