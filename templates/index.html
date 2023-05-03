@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>
+            Chip
+        </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/static/index.css">
+        <link rel="stylesheet" type="text/css" href="/static/scrollbar.css">
+    </head>
+    <body>
+        <div class="sidebar">
+            <div id="logo">
+                Fixy_
+            </div>
+            <div class="option" onclick="emptyChat()">
+                Nuevo chat
+            </div>
+            <a class="option" href="/contact">
+                Contacto
+            </a>
+        </div>
+        <div class="main">
+            <div id="messages">
+            </div>
+            <form class="chatbox" id="chatform" action="/chat/send" method="post">
+                <textarea id="chat" placeholder="Introduzca aquí su mensaje para enviar" name="message"></textarea>
+            </form>
+        </div>
+    </body>
+    <script src="/static/index.js"></script>
+    
+</html>
