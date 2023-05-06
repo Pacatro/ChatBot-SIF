@@ -6,19 +6,21 @@
         </title>
     </head>
     <body>
-        <div id="center">
+        <form id="center" method="post" action="/chat/email">
             <div id="title">
                 Envienos una consulta
             </div>
             <div id="text">
                 ¿Fixy no ha sido capaz de resolver su pregunta? Para poder ponernos en contacto con usted, por favor ponga a continuación sus detalles personales para que nosotros nos podamos poner en contacto con usted.
             </div>
-            <input type="text" id="nombre" placeholder="Nombre completo" /> 
-            <input type="text" id="Correo" placeholder="Correo electrónico" />
+            <input type="text" id="nombre" name="username" placeholder="Nombre completo" /> 
+            <input type="text" id="Correo" name="user_mail" placeholder="Correo electrónico" />
             <div id="container-text">
                 <p id="text-not-aligned">Inquiry</p>
-                <textarea id="inquiry"></textarea>
+                <textarea id="inquiry" name="user_message"></textarea>
             </div>
-        </div>
+        </form>
+
+        <script src="/static/contact.js"></script>
     </body>
 </html>
